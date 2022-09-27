@@ -18,17 +18,10 @@ app.get("/", (req, res) => {
 app.post('/addCookie', (req, res) => {
   let cookie = {'key' : req.body.key, 'value': req.body.value};
   cookies.push(cookie); 
-  console.log(cookies);
+  res.cookie(req.body.key, req.body.value);
   res.render('addCookie', {
     cookies
   });
 });
-
-// app.get('/result', (req, res) => {
-//   console.log(req.query.cookies)
-//   res.render('addCookie', {
-//     cookies: req.query.cookies
-//   });
-// });
 
 app.listen(3000);
