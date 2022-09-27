@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add cookie</title>
+</head>
+<body>
+    <form action="/addCookie" method="POST">
+        <label for="">Key</label>
+        <input type="text" name="key" id="">
+        <label for="">Value</label>
+        <input type="text" name="value" id="">
+
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <table style="border: 1px solid black; width: 50%;">
+        <tr>
+            <th style="border: 1px solid black;">Key</th>
+            <th style="border: 1px solid black;">Value</th>
+        </tr>
+
+        <% if(cookies.length > 0) { %>
+            <% for(cookie of cookies) { %>
+            <tr>
+                <td style="border: 1px solid black;"><%= cookie.key %></td>
+                <td style="border: 1px solid black;"><%= cookie.value %></td>
+            </tr>
+        <% } %>
+        <% } %>
+    </table>
+</body>
+</html>
